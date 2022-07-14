@@ -1,0 +1,4 @@
+Agent:
+./sipp -sf GIR3pcc/callrec_test_210.xml 172.24.134.173:5070 -p 7011 -trace_err -trace_screen -i 172.24.134.168 -slave s1 -slave_cfg GIR3pcc/performance_ms.txt -trace_stat 
+Caller:
+./sipp -sf GIR3pcc/callrec_dest_s3_http_mp3_no_encryption_test_direct_http.xml [mcp_ip:port] -p 6011 -r 5 -l 10 -m 1 -trace_err -trace_screen -i 172.24.134.168 -master m -slave_cfg GIR3pcc/performance_ms.txt

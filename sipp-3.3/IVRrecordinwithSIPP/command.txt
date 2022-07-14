@@ -1,0 +1,5 @@
+
+SETUP:
+RM-MCP
+
+./sipp -sf ivr_rec.xml -p 6098 172.24.131.29:4040 -r 30 -l 1200 -s 66543 -i 172.24.131.34 -trace_screen -m 1

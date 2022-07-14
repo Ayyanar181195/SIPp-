@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+
+<scenario name="Call Recording Part B using 3pcc">
+  
+  <recvCmd src="m">
+    <action>
+       <ereg regexp="Remote-Addr:[ ]*(.*)"  
+             search_in="msg"  
+             assign_to="1,remote_addr"/>
+    </action>
+  
+  </recvCmd>
+  
+  <send retrans="1000" start_rtd="1">
+    <![CDATA[
+
+      INVITE sip:msml=crbasic3@[$remote_addr];media-service=record SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[call_number]
+      To: sut <sip:msml@[$remote_addr]>
+      Call-ID: AgentLeg-///[call_id]
+      CSeq: 1 INVITE
+      Contact: sip:sipp@[local_ip]:[local_port]
+      Max-Forwards: 70
+      Subject: Record Leg2
+      X-Genesys-CallUUID: xgencall8890
+      X-Genesys-GVP-Session-ID: xgenGVP8890
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+      o=user1 54655765 2453687637 IN IP4 0.0.0.0
+      s=-
+      c=IN IP[media_ip_type] [media_ip]
+      t=0 0
+      m=audio [media_port] RTP/AVP 0 101
+      a=rtpmap:0 PCMU/8000
+
+      a=rtpmap:101 telephone-event/8000
+      a=fmtp:101 0-15
+  
+     ]]>
+  </send>
+
+  <recv response="100" optional="true"> </recv>
+  <recv response="180" optional="true"> </recv>
+  <recv response="200" crlf="true" rtd="1" rrs="true" timeout="10000" ontimeout="1">
+    <action>
+       <ereg regexp=";tag=(.*)"
+              search_in="hdr"
+              header="To"
+              assign_to="1,1"/>
+    </action>
+  </recv>
+  
+  <send>
+    <![CDATA[
+
+      ACK [next_url] SIP/2.0
+      [last_Via:]
+      [last_From:]
+      [last_To:]
+      Call-ID: AgentLeg-///[call_id]
+      CSeq: 1 ACK
+      Contact: sip:sipp@[local_ip]:[local_port]
+      Max-Forwards: 70
+      Content-Length: 0
+
+    ]]>
+  </send>
+
+  <label id="1"/>
+
+  <sendCmd dest="m">
+    <![CDATA[
+      Call-ID: [call_id]
+      From: s1
+      Party-B: [$1]
+
+     ]]>
+  </sendCmd>
+  
+  <recvCmd src="m" timeout="10000" ontimeout="5">
+  
+  </recvCmd>
+
+  <label id="5"/>
+  
+  <send retrans="1000" start_rtd="2">
+    <![CDATA[
+
+      INVITE sip:msml=crbasic3@[$remote_addr] SIP/2.0
+      [last_Via:]
+      [last_From:]
+      [last_To:]
+      Call-ID: AgentLeg-///[call_id]
+      CSeq: [cseq] INVITE
+      Contact: sip:sipp@[local_ip]:[local_port]
+      Max-Forwards: 70
+      Subject: Record Leg2
+      X-Genesys-CallUUID: xgencall8890
+      Content-Length: 0
+	  
+     ]]>
+  </send>
+
+  <recv response="100" optional="true"> </recv>
+  <recv response="180" optional="true"> </recv>
+  <recv response="200" crlf="true" rtd="2" rrs="true" timeout="10000" ontimeout="6">
+  </recv>
+  
+  <send>
+    <![CDATA[
+
+      ACK [next_url] SIP/2.0
+      [last_Via:]
+      [last_From:]
+      [last_To:]
+      Call-ID: AgentLeg-///[call_id]
+      CSeq: [cseq] ACK
+      Contact: sip:sipp@[local_ip]:[local_port]
+      Max-Forwards: 70
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+      o=user1 54655765 2453687638 IN IP4 127.0.0.1
+      s=-
+      c=IN IP[media_ip_type] [media_ip]
+      t=0 0
+      m=audio [media_port] RTP/AVP 0 101
+      a=rtpmap:0 PCMU/8000
+      a=sendrecv
+      a=rtpmap:101 telephone-event/8000
+      a=fmtp:101 0-15
+
+    ]]>
+  </send>
+
+  <label id="6"/>
+
+  <pause milliseconds="100"/>
+  
+  <nop>
+    <action>
+      <exec play_pcap_audio="GIR3pcc/song_pcmu_210s.pcap"/>
+    </action>
+  </nop>
+
+  <pause milliseconds="200000"/>
+
+  <label id="7"/>
+
+  <recvCmd src="m" timeout="15000" ontimeout="7"/>
+
+  <send rtd="true" retrans="1000"  start_rtd="3">
+    <![CDATA[
+
+      BYE sip:msml@[$remote_addr] SIP/2.0
+      [last_Via:]
+      [last_From:]
+      [last_To:]
+      Call-ID: AgentLeg-///[call_id]
+      CSeq: [cseq] BYE
+      Content-Length: 0
+
+    ]]>
+  </send>
+
+  <recv response="200" rtd="3" timeout="15000" ontimeout="8">
+  </recv>
+  
+  <label id="8"/>
+
+  <sendCmd dest="m">
+    <![CDATA[
+        Call-ID: [call_id]
+        From: s1
+
+     ]]>
+  </sendCmd>
+  
+  <pause milliseconds="1000"/>
+
+</scenario>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version = "2.1" xmlns:gvp="http://www.genesyslab.com/2006/vxml21-extension">
+<property name="inputmodes" value="dtmf" />
+<property name="bargein" value="false" />
+<form>
+<block>
+<log expr="'IVRRecording Status stopped = ' + session.connection.record" />
+<log gvp:dest="record">
+start;
+</log>
+</block>
+<block>  
+<audio src="http://172.24.129.61/Djay/Performance_applications/number_counting.vox"/> 
+<audio src="http://172.24.129.61/Djay/Performance_applications/goodbye.vox"/>
+</block>
+</form>
+</vxml>

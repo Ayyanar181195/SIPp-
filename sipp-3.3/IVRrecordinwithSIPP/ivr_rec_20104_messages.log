@@ -1,0 +1,124 @@
+----------------------------------------------- 2017-12-12 18:59:02:581.592
+UDP message sent (630 bytes):
+
+INVITE sip:7894@172.24.135.209:5070 SIP/2.0
+Via: SIP/2.0/UDP 172.24.134.168:6098;branch=z9hG4bK-20104-1-0
+From: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+To: <sip:7894@172.24.135.209:5070>
+Call-ID: 1-20104@172.24.134.168
+CSeq: 1 INVITE
+Contact: sip:sipp@172.24.134.168:6098
+Max-Forwards: 70
+Subject: Performance Test
+Content-Type: application/sdp
+X-Genesys-CallUUID: 1-20104@172.24.134.168123
+Content-Length:   201
+
+v=0
+o=user1 53655765 2353687637 IN IP4 172.24.134.168
+s=-
+c=IN IP4 172.24.134.168
+t=0 0
+m=audio 20000 RTP/AVP 18 101
+a=rtpmap:18 g729/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-11,16
+
+----------------------------------------------- 2017-12-12 18:59:02:581.970
+UDP message received [238] bytes :
+
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 172.24.134.168:6098;branch=z9hG4bK-20104-1-0
+From: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+To: <sip:7894@172.24.135.209:5070>
+CSeq: 1 INVITE
+Call-ID: 1-20104@172.24.134.168
+Content-Length: 0
+
+
+----------------------------------------------- 2017-12-12 18:59:02:583.923
+UDP message received [413] bytes :
+
+SIP/2.0 180 Ringing
+Via: SIP/2.0/UDP 172.24.134.168:6098;branch=z9hG4bK-20104-1-0
+From: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+To: <sip:7894@172.24.135.209:5070>;tag=7ABD44E7-6BB1-409A-9AAA-4B7B5A848684
+CSeq: 1 INVITE
+Call-ID: 1-20104@172.24.134.168
+Contact: sip:Genesys@172.24.135.209:5070
+Content-Length: 0
+Subject: Performance Test
+X-Genesys-GVP-Session-ID: C0E6FC22-9123-4C9F-819E-32F999DB1020
+
+
+----------------------------------------------- 2017-12-12 18:59:02:586.036
+UDP message received [648] bytes :
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 172.24.134.168:6098;branch=z9hG4bK-20104-1-0
+From: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+To: <sip:7894@172.24.135.209:5070>;tag=7ABD44E7-6BB1-409A-9AAA-4B7B5A848684
+CSeq: 1 INVITE
+Call-ID: 1-20104@172.24.134.168
+Contact: sip:Genesys@172.24.135.209:5070
+Content-Length: 207
+Content-Type: application/sdp
+Subject: Performance Test
+X-Genesys-GVP-Session-ID: C0E6FC22-9123-4C9F-819E-32F999DB1020
+
+v=0
+o=- 268435461 1 IN IP4 172.24.135.209
+s=phone-call
+c=IN IP4 172.24.135.209
+t=0 0
+m=audio 20004 RTP/AVP 18 101
+a=rtpmap:18 g729/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+
+----------------------------------------------- 2017-12-12 18:59:02:586.117
+UDP message sent (385 bytes):
+
+ACK sip:Genesys@172.24.135.209:5070 SIP/2.0
+Via: SIP/2.0/UDP 172.24.134.168:6098;branch=z9hG4bK-20104-1-5
+From: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+To: <sip:7894@172.24.135.209:5070>;tag=7ABD44E7-6BB1-409A-9AAA-4B7B5A848684
+Call-ID: 1-20104@172.24.134.168
+CSeq: 1 ACK
+Contact: sip:sipp@172.24.134.168:6098
+Max-Forwards: 70
+Subject: Performance Test
+Content-Length: 0
+
+
+----------------------------------------------- 2017-12-12 18:59:06:237.060
+UDP message received [519] bytes :
+
+BYE sip:sipp@172.24.134.168:6098 SIP/2.0
+Via: SIP/2.0/UDP 172.24.135.209:5070;branch=z9hG4bK000000001DE4D9802fd9a1
+From: <sip:7894@172.24.135.209:5070>;tag=7ABD44E7-6BB1-409A-9AAA-4B7B5A848684
+To: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+Max-Forwards: 70
+CSeq: 1 BYE
+Call-ID: 1-20104@172.24.134.168
+Content-Length: 13
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+X-Genesys-GVP-Session-ID: C0E6FC22-9123-4C9F-819E-32F999DB1020
+Subject: Performance Test
+Supported: timer, uui
+
+__reason=exit
+----------------------------------------------- 2017-12-12 18:59:06:237.174
+UDP message sent (334 bytes):
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 172.24.135.209:5070;branch=z9hG4bK000000001DE4D9802fd9a1
+From: <sip:7894@172.24.135.209:5070>;tag=7ABD44E7-6BB1-409A-9AAA-4B7B5A848684
+To: sipp <sip:sipp@172.24.134.168:6098>;tag=1
+Call-ID: 1-20104@172.24.134.168
+CSeq: 1 BYE
+Contact: <sip:172.24.134.168:6098;transport=UDP>
+Content-Length: 0
+
+

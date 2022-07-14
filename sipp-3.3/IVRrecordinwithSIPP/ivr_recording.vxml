@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<vxml Version="2.1" xmlns="http://www.w3.org/2001/vxml" xmlns:gvp="http://www.genesyslab.com/2006/vxml21-extension">
+<!-- Sample VXML to enable recording and pauses part of the recording. -->
+<property name="inputmodes" value="dtmf" />
+<form>
+
+<nomatch> <audio src="http://172.24.131.19/Test/1.mp3" /> <reprompt /> </nomatch>
+
+
+<field name="field1">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status stopped = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+start;
+parameter key1=value1;
+</log>
+</block>
+
+<field name="field2">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status started = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+pause;
+</log>
+</block>
+
+<field name="field3">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status paused = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+resume;
+</log>
+</block>
+
+<field name="field4">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status started = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+stop;
+</log>
+</block>
+
+<field name="field5">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status stopped = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+start;
+parameter key2=value2;
+</log>
+</block>
+
+<field name="field6">
+<prompt bargein="true" />
+<audio src="http://172.24.131.19/Test/1.mp3" /> 
+<grammar mode="dtmf" src="builtin:dtmf/digits?length=1"/>
+<filled>
+<log expr="'IVRRecording Status started = ' + session.connection.record" />
+</filled>
+</field>
+
+<block>
+<log gvp:dest="record">
+stop;
+</log>
+</block>
+
+</form>
+</vxml>

@@ -1,0 +1,79 @@
+------------------------------ Scenario Screen -------- [1-9]: Change Screen --
+  Timestamp: Thu Sep 27 23:50:52 2018
+
+  Port   Total-time  Total-calls  Transport
+  7011       6.09 s            0  UDP
+
+  0 new calls during 0.000 s period      0 ms scheduler resolution
+  0 calls                                Peak was 0 calls, after 0 s
+  0 Running, 2 Paused, 0 Woken up
+  0 dead call msg (discarded)          
+  1 open sockets                        
+
+                                 Messages  Retrans   Timeout   Unexpected-Msg
+    [ Received Command ]         0                                      
+  <---------- INVITE      B-RTD1 0         0         0                  
+  ----------> 100                0         0         0         0        
+  ----------> 180                0         0         0         0        
+  ----------> 200         E-RTD1 0         0         0         0        
+
+  <---------- ACK                0         0                            
+        [ Sent Command ]         0                                      
+    [ Received Command ]         0                                      
+  <---------- INVITE      B-RTD2 0         0         0                  
+  ----------> 100                0         0         0         0        
+  ----------> 180                0         0         0         0        
+  ----------> 200         E-RTD2 0         0         0         0        
+
+  <---------- ACK                0         0                            
+  [    100ms] Pause              0                             0        
+              [ NOP ]              
+  [     3:20] Pause              0                             0        
+    [ Received Command ]         0                                      
+  <---------- BYE         B-RTD3 0         0         0                  
+  ----------> 200         E-RTD3 0         0         0         0        
+        [ Sent Command ]         0                                      
+  [   1000ms] Pause              0                             0        
+------- Waiting for active calls to end. Press [q] again to force exit. -------
+
+----------------------------- Statistics Screen ------- [1-9]: Change Screen --
+  Start Time             | 2018-09-27	23:50:46:727	1538072446.727248            
+  Last Reset Time        | 2018-09-27	23:50:52:828	1538072452.828449            
+  Current Time           | 2018-09-27	23:50:52:828	1538072452.828484            
+-------------------------+---------------------------+--------------------------
+  Counter Name           | Periodic value            | Cumulative value
+-------------------------+---------------------------+--------------------------
+  Elapsed Time           | 00:00:00:000              | 00:00:06:101             
+  Call Rate              |    0.000 cps              |    0.000 cps             
+-------------------------+---------------------------+--------------------------
+  Incoming call created  |        0                  |        0                 
+  OutGoing call created  |        0                  |        0                 
+  Total Call created     |                           |        0                 
+  Current Call           |        0                  |                          
+-------------------------+---------------------------+--------------------------
+  Successful call        |        0                  |        0                 
+  Failed call            |        0                  |        0                 
+-------------------------+---------------------------+--------------------------
+  Response Time 1        | 00:00:00:000              | 00:00:00:000             
+  Response Time 2        | 00:00:00:000              | 00:00:00:000             
+  Response Time 3        | 00:00:00:000              | 00:00:00:000             
+  Call Length            | 00:00:00:000              | 00:00:00:000             
+------- Waiting for active calls to end. Press [q] again to force exit. -------
+
+---------------------------- Repartition Screen ------- [1-9]: Change Screen --
+  Average Response Time Repartition 1                                           
+    <No repartion defined>                                                      
+  Average Call Length Repartition                                               
+    <No repartion defined>                                                      
+------- Waiting for active calls to end. Press [q] again to force exit. -------
+
+--------------------------- Repartition 2 Screen ------ [1-9]: Change Screen --
+  Average Response Time Repartition 2                                           
+    <No repartion defined>                                                      
+------- Waiting for active calls to end. Press [q] again to force exit. -------
+
+--------------------------- Repartition 3 Screen ------ [1-9]: Change Screen --
+  Average Response Time Repartition 3                                           
+    <No repartion defined>                                                      
+------- Waiting for active calls to end. Press [q] again to force exit. -------
+

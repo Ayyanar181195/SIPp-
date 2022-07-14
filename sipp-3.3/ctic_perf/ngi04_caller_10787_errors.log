@@ -1,0 +1,10 @@
+sipp: The following events occured:
+2018-09-26	17:09:10:926	1537961950.926669: Aborting call on unexpected message for Call-Id '1-10787@172.24.134.168': while expecting '100' (index 1), received 'SIP/2.0 404 Not Found
+Via: SIP/2.0/UDP 172.24.134.168:11200;branch=z9hG4bK-10787-1-0;received=172.24.134.168
+From: sipp <sip:sipp@172.24.134.168:11200>;tag=1
+To: <sip:9090@172.24.135.209:6060>;tag=AC769FD9-66AA-49A7-9716-797484FC4293-46
+Call-ID: 1-10787@172.24.134.168
+CSeq: 1 INVITE
+Content-Length: 0
+
+'.

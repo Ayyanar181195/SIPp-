@@ -1,0 +1,3 @@
+sipp: The following events occured:
+2018-09-27	23:22:12:994	1538070732.994784: Unable to connect a twin sipp socket 
+Use 'sipp -h' for details, errno = 111 (Connection refused).

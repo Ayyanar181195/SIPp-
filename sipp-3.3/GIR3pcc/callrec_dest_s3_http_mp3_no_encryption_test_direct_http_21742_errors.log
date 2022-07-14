@@ -1,0 +1,4 @@
+sipp: The following events occured:
+2018-09-27	23:32:17:773	1538071337.773877: Returning EPIPE on invalid socket: 0x16541a0 (0)
+.
+2018-09-27	23:32:17:774	1538071337.774091: Unable to send UDP message: Broken pipe.
